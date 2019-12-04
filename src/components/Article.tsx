@@ -13,7 +13,6 @@ const Article: React.FC<ArticleProps> = props => {
       component="article"
       gutterBottom
       style={{
-        fontFamily: "source-han-serif-sc, serif",
         whiteSpace: "pre-line"
       }}
       {...restProps}
