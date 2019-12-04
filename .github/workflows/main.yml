@@ -20,11 +20,16 @@ jobs:
     needs: [check]
     runs-on: ubuntu-latest
     env:
-      ZEIT_NOW_TOKEN: ${{ secrets.ZEIT_NOW_TOKEN }}
+      USERNAME: $GITHUB_ACTOR
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - uses: actions/checkout@v1
-      - name: Deploy with Now
-        run: now --prod --token $ZEIT_NOW_TOKEN
+      - name: Login into registry
+        run: docker login docker.pkg.github.com -u $USERNAME -p $GITHUB_TOKEN
+      - name: Build Docker image
+        run: docker build -t docker.pkg.github.com/$GITHUB_REPOSITORY/app:latest .
+      - name: Push to registry
+        run: docker push docker.pkg.github.com/$GITHUB_REPOSITORY/app:latest
 
   lighthouse:
     needs: [deploy]
