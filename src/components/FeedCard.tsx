@@ -80,7 +80,7 @@ const FeedCard: React.FC<FeedCardProps> = props => {
               borderRadius: 8,
               marginRight: 16
             }}
-            image="https://picsum.photos/500/500"
+            image="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='500' height='200' viewBox='0 0 500 200' preserveAspectRatio='none'%3E%3Crect width='500' height='200' style='' fill='%23eee'/%3E%3Ctext text-anchor='middle' x='250' y='100' style='fill:%23aaa;font-weight:bold;font-size:31px;font-family:Arial,Helvetica,sans-serif;dominant-baseline:central'%3E500x200%3C/text%3E%3C/svg%3E"
           />
         </div>
       </CardActionArea>

@@ -19,7 +19,9 @@ const PostArticle: React.FC<PostArticleProps> = props => {
   return (
     <Card {...props}>
       <CardHeader
-        avatar={<Avatar src="https://i.pravatar.cc/300" />}
+        avatar={
+          <Avatar src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Crect width='100' height='100' style='' fill='%23eee'/%3E%3Ctext text-anchor='middle' x='50' y='50' style='fill:%23aaa;font-weight:bold;font-size:12px;font-family:Arial,Helvetica,sans-serif;dominant-baseline:central'%3E100x100%3C/text%3E%3C/svg%3E" />
+        }
         title="robertying"
         subheader="苦逼申请中……"
       />
