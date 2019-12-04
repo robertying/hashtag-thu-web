@@ -36,7 +36,7 @@ const App: React.FC = () => {
           <NavigationBar path="/hashtags/:id" />
         </Router>
         <Router>
-          <Redirect from="/" to="/home" />
+          <Redirect from="/" to="/home" noThrow />
           <FeedPage path="/home" />
           <ExplorePage path="/explore" />
           <HashtagIndexPage path="/hashtags" />
