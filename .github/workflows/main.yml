@@ -25,7 +25,7 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: Login into registry
-        run: docker login docker.pkg.github.com -u $USERNAME -p $GITHUB_TOKEN
+        run: echo $GITHUB_TOKEN | docker login docker.pkg.github.com -u $USERNAME --password-stdin
       - name: Build Docker image
         run: docker build -t docker.pkg.github.com/$GITHUB_REPOSITORY/app:latest .
       - name: Push to registry
@@ -40,7 +40,7 @@ jobs:
         uses: treosh/lighthouse-ci-action@v2
         with:
           urls: |
-            https://hashtag-thu-web.now.sh
+            https://thu.wtf
           temporaryPublicStorage: true
       - name: Save results
         uses: actions/upload-artifact@v1
