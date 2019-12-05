@@ -16,9 +16,7 @@ const plugins = [
       camel2DashComponentName: false
     },
     "icons"
-  ],
-  "@babel/proposal-optional-chaining",
-  "@babel/plugin-proposal-nullish-coalescing-operator"
+  ]
 ];
 
 module.exports = { plugins };
