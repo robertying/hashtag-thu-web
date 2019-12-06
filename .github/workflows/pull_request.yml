@@ -1,0 +1,17 @@
+name: pull_request
+
+on: [pull_request]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Install dependencies
+        run: yarn
+      - name: Run eslint
+        run: yarn lint
+      - name: Build
+        run: yarn build
+      - name: Test
+        run: CI=true yarn test

@@ -1,6 +1,9 @@
-name: CI
+name: push
 
-on: [push]
+on:
+  push:
+    branches:
+      - master
 
 jobs:
   check:
