@@ -6,18 +6,34 @@ import {
   CardActions,
   CardHeader,
   Avatar,
-  IconButton
+  IconButton,
+  Button
 } from "@material-ui/core";
-import { Share, Favorite } from "@material-ui/icons";
+import { makeStyles, createStyles } from "@material-ui/core/styles";
+import { Share, Favorite, Comment } from "@material-ui/icons";
 import Article from "./Article";
 import EmojiSelector from "./EmojiSelector";
 import { CardProps } from "@material-ui/core/Card";
 
-export interface PostArticleProps extends CardProps {}
+const useStyles = makeStyles(theme =>
+  createStyles({
+    button: {
+      marginLeft: theme.spacing(2),
+      marginRight: theme.spacing(1)
+    }
+  })
+);
+
+export interface PostArticleProps extends CardProps {
+  onCommentButtonClick?: () => void;
+}
 
 const PostArticle: React.FC<PostArticleProps> = props => {
+  const classes = useStyles();
+
+  const { onCommentButtonClick, ...restProps } = props;
   return (
-    <Card {...props}>
+    <Card {...restProps}>
       <CardHeader
         avatar={
           <Avatar src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Crect width='100' height='100' style='' fill='%23eee'/%3E%3Ctext text-anchor='middle' x='50' y='50' style='fill:%23aaa;font-weight:bold;font-size:12px;font-family:Arial,Helvetica,sans-serif;dominant-baseline:central'%3E100x100%3C/text%3E%3C/svg%3E" />
@@ -42,7 +58,24 @@ const PostArticle: React.FC<PostArticleProps> = props => {
           alignItems: "center"
         }}
       >
-        <EmojiSelector />
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "flex-start",
+            alignItems: "center"
+          }}
+        >
+          {onCommentButtonClick && (
+            <Button
+              className={classes.button}
+              startIcon={<Comment color="action" />}
+              onClick={onCommentButtonClick}
+            >
+              251
+            </Button>
+          )}
+          <EmojiSelector />
+        </div>
         <div>
           <IconButton>
             <Favorite />
