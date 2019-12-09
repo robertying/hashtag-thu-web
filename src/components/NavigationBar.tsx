@@ -37,7 +37,11 @@ export interface NavigationBarProps extends RouteComponentProps {}
 const NavigationBar: React.FC<NavigationBarProps> = props => {
   const classes = useStyles();
 
-  const [currentTab, setCurrentTab] = useState<Page>("home");
+  const { path } = props;
+
+  const [currentTab, setCurrentTab] = useState<Page>(
+    path!.split("/").pop() as Page
+  );
 
   const handleTabChange = (e: React.ChangeEvent<{}>, value: Page) => {
     navigate(`/${value}`);
