@@ -5,6 +5,7 @@ import Container from "@material-ui/core/Container";
 import Fab from "@material-ui/core/Fab";
 import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
 import Zoom from "@material-ui/core/Zoom";
+import { Edit } from "@material-ui/icons";
 
 const useStyles = makeStyles(theme =>
   createStyles({
@@ -16,18 +17,27 @@ const useStyles = makeStyles(theme =>
       display: "flex",
       justifyContent: "flex-end"
     },
-    fab: {
+    hFlex: {
+      display: "flex",
+      flexDirection: "row",
+      alignItems: "center",
+      "& > *": {
+        margin: theme.spacing(0.5)
+      },
       marginRight: -theme.spacing(8)
     }
   })
 );
 
-export interface BackToTopProps {
+export interface FloatingActionsProps {
   threshold?: number;
+  onEditButtonClick?: () => void;
 }
 
-const BackToTop: React.FC<BackToTopProps> = props => {
+const FloatingActions: React.FC<FloatingActionsProps> = props => {
   const classes = useStyles();
+
+  const { onEditButtonClick } = props;
 
   const trigger = useScrollTrigger({
     disableHysteresis: true,
@@ -40,19 +50,30 @@ const BackToTop: React.FC<BackToTopProps> = props => {
 
   return (
     <Container maxWidth="md" className={classes.root}>
-      <Zoom in={trigger}>
-        <Fab
-          className={classes.fab}
-          onClick={handleClick}
-          color="secondary"
-          size="small"
-          aria-label="scroll back to top"
-        >
-          <KeyboardArrowUpIcon />
-        </Fab>
-      </Zoom>
+      <div className={classes.hFlex}>
+        {onEditButtonClick && (
+          <Fab
+            onClick={onEditButtonClick}
+            color="primary"
+            size="small"
+            aria-label="new post"
+          >
+            <Edit />
+          </Fab>
+        )}
+        <Zoom in={trigger}>
+          <Fab
+            onClick={handleClick}
+            color="secondary"
+            size="small"
+            aria-label="scroll back to top"
+          >
+            <KeyboardArrowUpIcon />
+          </Fab>
+        </Zoom>
+      </div>
     </Container>
   );
 };
 
-export default BackToTop;
+export default FloatingActions;

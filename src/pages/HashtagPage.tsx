@@ -4,7 +4,7 @@ import { makeStyles, createStyles } from "@material-ui/core/styles";
 import FeedCard from "../components/FeedCard";
 import { RouteComponentProps } from "@reach/router";
 import { NavigationParams } from "../types/NavigationParams";
-import BackToTop from "../components/BackToTop";
+import FloatingActions from "../components/FloatingActions";
 import HashtagSideBar from "../components/HashtagSideBar";
 
 const useStyles = makeStyles(theme =>
@@ -43,6 +43,11 @@ const useStyles = makeStyles(theme =>
     card: {
       marginTop: 16,
       marginBottom: 16
+    },
+    appBar: {
+      backgroundColor: "white",
+      color: "black",
+      position: "relative"
     }
   })
 );
@@ -69,7 +74,7 @@ const HashtagPage: React.FC<HashtagPageProps> = props => {
         </div>
         <HashtagSideBar className={classes.sidebar} />
       </Container>
-      <BackToTop />
+      <FloatingActions onEditButtonClick={() => props.navigate?.("edit")} />
     </>
   );
 };

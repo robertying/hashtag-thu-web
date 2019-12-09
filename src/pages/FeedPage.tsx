@@ -4,7 +4,7 @@ import { makeStyles, createStyles } from "@material-ui/core/styles";
 import FeedCard from "../components/FeedCard";
 import { RouteComponentProps } from "@reach/router";
 import { NavigationParams } from "../types/NavigationParams";
-import BackToTop from "../components/BackToTop";
+import FloatingActions from "../components/FloatingActions";
 
 const useStyles = makeStyles(theme =>
   createStyles({
@@ -52,7 +52,7 @@ const FeedPage: React.FC<FeedPageProps> = props => {
           />
         ))}
       </Container>
-      <BackToTop />
+      <FloatingActions />
     </>
   );
 };

@@ -7,7 +7,7 @@ import { RouteComponentProps } from "@reach/router";
 import ScrollToTopOnMount from "../components/ScrollToTopOnMount";
 import { NavigationParams } from "../types/NavigationParams";
 import ElevateOnScroll from "../components/ElevateOnScroll";
-import BackToTop from "../components/BackToTop";
+import FloatingActions from "../components/FloatingActions";
 
 const useStyles = makeStyles(theme =>
   createStyles({
@@ -63,7 +63,7 @@ const PostPage: React.FC<PostPageProps> = props => {
           <PostArticle style={{ marginTop: 4, marginBottom: 4 }} />
         </div>
       </Container>
-      <BackToTop />
+      <FloatingActions />
     </>
   );
 };

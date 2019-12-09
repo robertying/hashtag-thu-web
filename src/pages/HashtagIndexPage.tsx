@@ -3,7 +3,7 @@ import { Container, Chip } from "@material-ui/core";
 import { makeStyles, createStyles } from "@material-ui/core/styles";
 import { RouteComponentProps } from "@reach/router";
 import { NavigationParams } from "../types/NavigationParams";
-import BackToTop from "../components/BackToTop";
+import FloatingActions from "../components/FloatingActions";
 import SearchBar from "../components/SearchBar";
 
 const useStyles = makeStyles(theme =>
@@ -47,7 +47,7 @@ const HashtagIndexPage: React.FC<HashtagIndexPageProps> = props => {
           ))}
         </div>
       </Container>
-      <BackToTop />
+      <FloatingActions />
     </>
   );
 };
