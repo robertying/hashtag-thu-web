@@ -43,7 +43,7 @@ const HashtagIndexPage: React.FC<HashtagIndexPageProps> = props => {
         <SearchBar className={classes.searchBar} />
         <div className={classes.hFlex} style={{ width: "50%", margin: 24 }}>
           {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].map(i => (
-            <Chip key={i} label="要不要选电电小班" />
+            <Chip key={i} variant="outlined" label="要不要选电电小班" />
           ))}
         </div>
       </Container>
