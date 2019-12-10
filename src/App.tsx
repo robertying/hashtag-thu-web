@@ -10,6 +10,8 @@ import HashtagIndexPage from "./pages/HashtagIndexPage";
 import NavigationBar from "./components/NavigationBar";
 import HashtagPage from "./pages/HashtagPage";
 import EditPage from "./pages/EditPage";
+import ProfilePage from "./pages/ProfilePage";
+import SettingsPage from "./pages/SettingsPage";
 
 const theme = createMuiTheme(
   {
@@ -35,6 +37,8 @@ const App: React.FC = () => {
           <NavigationBar path="/explore" />
           <NavigationBar path="/hashtags" />
           <NavigationBar path="/hashtags/:id" />
+          <NavigationBar path="/:username" />
+          <NavigationBar path="/:username/settings" />
         </Router>
         <Router>
           <Redirect from="/" to="/home" noThrow />
@@ -44,6 +48,8 @@ const App: React.FC = () => {
           <HashtagPage path="/hashtags/1" />
           <PostPage path="/hashtags/1/posts/1" />
           <EditPage path="/hashtags/1/edit" />
+          <ProfilePage path="/robertying" />
+          <SettingsPage path="/robertying/settings" />
         </Router>
       </>
     </ThemeProvider>
