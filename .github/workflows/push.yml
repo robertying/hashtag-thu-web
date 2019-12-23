@@ -30,9 +30,9 @@ jobs:
       - name: Login into registry
         run: echo $GITHUB_TOKEN | docker login docker.pkg.github.com -u $USERNAME --password-stdin
       - name: Build Docker image
-        run: docker build -t docker.pkg.github.com/$GITHUB_REPOSITORY/app:latest .
+        run: docker build -t docker.pkg.github.com/$GITHUB_REPOSITORY/web:latest .
       - name: Push to registry
-        run: docker push docker.pkg.github.com/$GITHUB_REPOSITORY/app:latest
+        run: docker push docker.pkg.github.com/$GITHUB_REPOSITORY/web:latest
 
   lighthouse:
     needs: [deploy]
