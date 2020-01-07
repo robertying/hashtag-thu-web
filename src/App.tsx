@@ -12,6 +12,9 @@ import HashtagPage from "./pages/HashtagPage";
 import EditPage from "./pages/EditPage";
 import ProfilePage from "./pages/ProfilePage";
 import SettingsPage from "./pages/SettingsPage";
+import LoginPage from "./pages/LoginPage";
+import { SWRConfig } from "swr";
+import { fetcher } from "./apis";
 
 const theme = createMuiTheme(
   {
@@ -30,29 +33,35 @@ const theme = createMuiTheme(
 
 const App: React.FC = () => {
   return (
-    <ThemeProvider theme={theme}>
-      <>
-        <Router primary={false}>
-          <NavigationBar path="/home" />
-          <NavigationBar path="/explore" />
-          <NavigationBar path="/hashtags" />
-          <NavigationBar path="/hashtags/:id" />
-          <NavigationBar path="/:username" />
-          <NavigationBar path="/:username/settings" />
-        </Router>
-        <Router>
-          <Redirect from="/" to="/home" noThrow />
-          <FeedPage path="/home" />
-          <ExplorePage path="/explore" />
-          <HashtagIndexPage path="/hashtags" />
-          <HashtagPage path="/hashtags/1" />
-          <PostPage path="/hashtags/1/posts/1" />
-          <EditPage path="/hashtags/1/edit" />
-          <ProfilePage path="/robertying" />
-          <SettingsPage path="/robertying/settings" />
-        </Router>
-      </>
-    </ThemeProvider>
+    <SWRConfig
+      value={{
+        fetcher
+      }}
+    >
+      <ThemeProvider theme={theme}>
+        <>
+          <Router primary={false}>
+            <NavigationBar path="/home" />
+            <NavigationBar path="/explore" />
+            <NavigationBar path="/hashtags" />
+            <NavigationBar path="/hashtags/:id" />
+            <NavigationBar path="/:username/settings" />
+          </Router>
+          <Router>
+            <Redirect from="/" to="/home" noThrow />
+            <FeedPage path="/home" />
+            <ExplorePage path="/explore" />
+            <HashtagIndexPage path="/hashtags" />
+            <HashtagPage path="/hashtags/1" />
+            <PostPage path="/hashtags/1/posts/1" />
+            <EditPage path="/hashtags/1/edit" />
+            <ProfilePage path="/robertying" />
+            <SettingsPage path="/robertying/settings" />
+            <LoginPage path="/login" />
+          </Router>
+        </>
+      </ThemeProvider>
+    </SWRConfig>
   );
 };
 
