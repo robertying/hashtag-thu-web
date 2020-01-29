@@ -106,7 +106,7 @@ const LoginPage: React.FC = props => {
       return;
     }
 
-    if (!validateEmail(values.email)) {
+    if (!validateEmail(values.email, false)) {
       setMessage("请输入正确的非清华邮箱");
       return;
     }

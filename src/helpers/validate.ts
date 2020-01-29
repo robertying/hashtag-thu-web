@@ -3,11 +3,20 @@ import isEmail from "isemail";
 /**
  * Email with `tsinghua` suffix
  */
-export const validateEmail = (email: string) => {
-  return (
-    isEmail.validate(email) &&
-    (email.endsWith("tsinghua.edu.cn") || email.endsWith("tsinghua.org.cn"))
-  );
+export const validateEmail = (email: string, tsinghua: boolean) => {
+  if (!isEmail.validate(email)) {
+    return false;
+  }
+
+  if (tsinghua) {
+    return (
+      email.endsWith("tsinghua.edu.cn") || email.endsWith("tsinghua.org.cn")
+    );
+  } else {
+    return !(
+      email.endsWith("tsinghua.edu.cn") || email.endsWith("tsinghua.org.cn")
+    );
+  }
 };
 
 /**
