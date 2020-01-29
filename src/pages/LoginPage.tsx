@@ -263,7 +263,7 @@ const LoginPage: React.FC = props => {
         <div
           style={{ zIndex: -1 }}
           className="g-recaptcha"
-          data-sitekey="6LdMsckUAAAAAIf-xzue4XkZQPVPne1EZSeXyVm1"
+          data-sitekey="6LfusMkUAAAAAJRl9ZXEMuetPe5eX9lqVkjvaOqv"
         ></div>
         <br />
         <div className={classes.buttons}>
