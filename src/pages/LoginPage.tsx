@@ -16,7 +16,11 @@ import logo from "../assets/logo.png";
 import background from "../assets/background.png";
 import { animated, useSpring } from "react-spring";
 import axios from "axios";
-import isEmail from "isemail";
+import {
+  validateEmail,
+  validateUsername,
+  validatePassword
+} from "../helpers/validate";
 
 declare const grecaptcha: any;
 
@@ -38,7 +42,7 @@ const useStyles = makeStyles(theme =>
       margin: "auto",
       padding: 24,
       maxWidth: "15vw",
-      maxHeight: "50vh",
+      maxHeight: "65vh",
       display: "flex",
       flexDirection: "column",
       justifyContent: "center",
@@ -106,29 +110,17 @@ const LoginPage: React.FC<LoginPageProps> = props => {
       return;
     }
 
-    if (!isEmail.validate(values.email)) {
-      setMessage("请输入正确的邮箱");
+    if (!validateEmail(values.email)) {
+      setMessage("请输入正确的非清华邮箱");
       return;
     }
 
-    if (
-      values.email.endsWith("tsinghua.edu.cn") ||
-      values.email.endsWith("tsinghua.org.cn")
-    ) {
-      setMessage("请使用非清华邮箱");
-      return;
-    }
-
-    if (!/^[a-zA-Z0-9]*$/.test(values.username)) {
+    if (!validateUsername(values.username)) {
       setMessage("请设置满足要求的用户名");
       return;
     }
 
-    if (
-      !/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{16,}$/.test(
-        values.password
-      )
-    ) {
+    if (!validatePassword(values.password)) {
       setMessage("请设置满足要求的密码");
       return;
     }
