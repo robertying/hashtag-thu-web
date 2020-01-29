@@ -2,9 +2,8 @@ import React from "react";
 import { Container, Typography, Paper, Chip } from "@material-ui/core";
 import { makeStyles, createStyles } from "@material-ui/core/styles";
 import FeedCard from "../components/FeedCard";
-import { RouteComponentProps } from "@reach/router";
-import { NavigationParams } from "../types/NavigationParams";
 import FloatingActions from "../components/FloatingActions";
+import { useHistory } from "react-router-dom";
 
 const useStyles = makeStyles(theme =>
   createStyles({
@@ -32,11 +31,10 @@ const useStyles = makeStyles(theme =>
   })
 );
 
-export interface ExplorePageProps
-  extends RouteComponentProps<NavigationParams> {}
-
-const ExplorePage: React.FC<ExplorePageProps> = props => {
+const ExplorePage: React.FC = props => {
   const classes = useStyles();
+
+  const history = useHistory();
 
   return (
     <>
@@ -67,7 +65,7 @@ const ExplorePage: React.FC<ExplorePageProps> = props => {
             hashtag="#选课"
             avatar="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ii0xMS41IC0xMC4yMzE3NCAyMyAyMC40NjM0OCI+CiAgPHRpdGxlPlJlYWN0IExvZ288L3RpdGxlPgogIDxjaXJjbGUgY3g9IjAiIGN5PSIwIiByPSIyLjA1IiBmaWxsPSIjNjFkYWZiIi8+CiAgPGcgc3Ryb2tlPSIjNjFkYWZiIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIi8+CiAgICA8ZWxsaXBzZSByeD0iMTEiIHJ5PSI0LjIiIHRyYW5zZm9ybT0icm90YXRlKDYwKSIvPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIiB0cmFuc2Zvcm09InJvdGF0ZSgxMjApIi8+CiAgPC9nPgo8L3N2Zz4K"
             username="robertying"
-            onClick={() => props.navigate?.("/hashtags/1/posts/1")}
+            onClick={() => history.push("/hashtags/1/posts/1")}
           />
         ))}
       </Container>

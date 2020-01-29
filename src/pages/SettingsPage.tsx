@@ -1,8 +1,6 @@
 import React from "react";
 import { Container, Typography, Paper, TextField } from "@material-ui/core";
 import { makeStyles, createStyles } from "@material-ui/core/styles";
-import { RouteComponentProps } from "@reach/router";
-import { NavigationParams } from "../types/NavigationParams";
 import FloatingActions from "../components/FloatingActions";
 
 const useStyles = makeStyles(theme =>
@@ -31,10 +29,7 @@ const useStyles = makeStyles(theme =>
   })
 );
 
-export interface SettingsPageProps
-  extends RouteComponentProps<NavigationParams> {}
-
-const SettingsPage: React.FC<SettingsPageProps> = props => {
+const SettingsPage: React.FC = props => {
   const classes = useStyles();
 
   return (

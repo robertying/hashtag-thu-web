@@ -10,7 +10,6 @@ import {
 } from "@material-ui/core";
 import { makeStyles, createStyles } from "@material-ui/core/styles";
 import { Close } from "@material-ui/icons";
-import { RouteComponentProps } from "@reach/router";
 import MarkdownEditor from "../components/MarkdownEditor";
 
 const useStyles = makeStyles(theme =>
@@ -62,9 +61,7 @@ const useStyles = makeStyles(theme =>
   })
 );
 
-export interface EditPageProps extends RouteComponentProps {}
-
-const EditPage: React.FC<EditPageProps> = props => {
+const EditPage: React.FC = props => {
   const classes = useStyles();
 
   const handleClose = () => {

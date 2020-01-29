@@ -1,8 +1,6 @@
 import React from "react";
 import { Container, Chip } from "@material-ui/core";
 import { makeStyles, createStyles } from "@material-ui/core/styles";
-import { RouteComponentProps } from "@reach/router";
-import { NavigationParams } from "../types/NavigationParams";
 import FloatingActions from "../components/FloatingActions";
 import SearchBar from "../components/SearchBar";
 
@@ -31,10 +29,7 @@ const useStyles = makeStyles(theme =>
   })
 );
 
-export interface HashtagIndexPageProps
-  extends RouteComponentProps<NavigationParams> {}
-
-const HashtagIndexPage: React.FC<HashtagIndexPageProps> = props => {
+const HashtagIndexPage: React.FC = props => {
   const classes = useStyles();
 
   return (

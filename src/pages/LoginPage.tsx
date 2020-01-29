@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import { RouteComponentProps } from "@reach/router";
-import { NavigationParams } from "../types/NavigationParams";
 import {
   Paper,
   TextField,
@@ -67,8 +65,6 @@ const useStyles = makeStyles(theme =>
   })
 );
 
-export interface LoginPageProps extends RouteComponentProps<NavigationParams> {}
-
 interface FormState {
   email: string;
   username: string;
@@ -76,7 +72,7 @@ interface FormState {
   showPassword: boolean;
 }
 
-const LoginPage: React.FC<LoginPageProps> = props => {
+const LoginPage: React.FC = props => {
   const classes = useStyles();
 
   const [values, setValues] = React.useState<FormState>({

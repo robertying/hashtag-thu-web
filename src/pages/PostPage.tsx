@@ -11,9 +11,7 @@ import {
 import { makeStyles, createStyles } from "@material-ui/core/styles";
 import PostArticle from "../components/PostArticle";
 import { ArrowBack } from "@material-ui/icons";
-import { RouteComponentProps } from "@reach/router";
 import ScrollToTopOnMount from "../components/ScrollToTopOnMount";
-import { NavigationParams } from "../types/NavigationParams";
 import ElevateOnScroll from "../components/ElevateOnScroll";
 import FloatingActions from "../components/FloatingActions";
 import CommentCard from "../components/CommentCard";
@@ -39,9 +37,7 @@ const useStyles = makeStyles(theme =>
   })
 );
 
-export interface PostPageProps extends RouteComponentProps<NavigationParams> {}
-
-const PostPage: React.FC<PostPageProps> = props => {
+const PostPage: React.FC = props => {
   const classes = useStyles();
 
   const handleGoBack = () => {

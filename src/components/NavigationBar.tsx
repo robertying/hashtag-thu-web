@@ -11,9 +11,9 @@ import {
   MenuItem
 } from "@material-ui/core";
 import { makeStyles, createStyles, withStyles } from "@material-ui/core/styles";
-import { navigate, RouteComponentProps } from "@reach/router";
 import ElevateOnScroll from "./ElevateOnScroll";
 import { Page } from "../types/Page";
+import { useHistory, useLocation } from "react-router-dom";
 
 const useStyles = makeStyles(theme =>
   createStyles({
@@ -42,19 +42,18 @@ const StyledTab = withStyles({
   }
 })(Tab);
 
-export interface NavigationBarProps extends RouteComponentProps {}
-
-const NavigationBar: React.FC<NavigationBarProps> = props => {
+const NavigationBar: React.FC = props => {
   const classes = useStyles();
 
-  const { path } = props;
+  const history = useHistory();
+  const location = useLocation();
 
   const [currentTab, setCurrentTab] = useState<Page>(
-    path!.split("/")[1] as Page
+    location.pathname.split("/")[1] as Page
   );
 
   const handleTabChange = (e: React.ChangeEvent<{}>, value: Page) => {
-    navigate(`/${value}`);
+    history.push(`/${value}`);
     setCurrentTab(value);
   };
 
