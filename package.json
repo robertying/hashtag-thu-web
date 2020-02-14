@@ -37,7 +37,7 @@
     "react-scripts": "3.4.0",
     "react-spring": "8.0.27",
     "source-map-explorer": "2.2.2",
-    "swr": "0.1.16",
+    "swr": "0.1.17",
     "typescript": "3.7.5"
   },
   "husky": {
