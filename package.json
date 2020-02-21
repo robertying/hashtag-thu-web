@@ -36,7 +36,7 @@
     "react-router-dom": "5.1.2",
     "react-scripts": "3.4.0",
     "react-spring": "8.0.27",
-    "source-map-explorer": "2.2.2",
+    "source-map-explorer": "2.3.1",
     "swr": "0.1.17",
     "typescript": "3.7.5"
   },
